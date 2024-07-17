@@ -1,7 +1,6 @@
 import { format } from 'date-fns'
 import { ko } from 'date-fns/locale'
 import DayPicker from 'react-datepicker'
-// import 'react-datepicker/dist/react-datepicker.css'
 
 interface Props {
   date: Date
