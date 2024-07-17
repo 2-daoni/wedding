@@ -9,18 +9,27 @@ interface Props {
     bride: BrideDto
     date: string
     location: string
+    message: { intro: string; invitation: string }
   }
 }
 
 const Intro = ({ data }: Props) => {
-  const { groom, bride, date, location } = data
+  const { groom, bride, date, location, message } = data
   return (
-    <div className="text-center">
+    <div className="text-center space-y-[8px]">
       <p className="text-[24px]">
         {bride.name} 🩷 {groom.name}
       </p>
       <p>{format(parseISO(date), 'yyyy년 M월 d일 eeee', { locale: ko })}</p>
       <p>{location}</p>
+      <div className="pt-[20px]">
+        <p>🌷</p>
+        <p className="whitespace-pre-line">{message.intro}</p>
+      </div>
+      <div className="pt-[40px]">
+        <p>💌</p>
+        <p className="whitespace-pre-line">{message.invitation}</p>
+      </div>
     </div>
   )
 }

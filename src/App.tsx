@@ -7,6 +7,7 @@ import Header from './components/section/Header'
 import Video from './components/section/Video'
 import ImageGallery from './components/section/ImageGallery'
 import Intro from './components/section/Intro'
+import Calendar from './components/section/Calendar'
 
 function App() {
   //1. wedding 데이터 호출
@@ -69,8 +70,10 @@ function App() {
             bride: bride,
             date: date,
             location: location.name,
+            message: message,
           }}
         />
+        <Calendar date={new Date(date)} />
       </div>
     )
   }

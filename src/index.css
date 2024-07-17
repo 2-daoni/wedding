@@ -26,3 +26,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* 캘린더 UI */
+.react-datepicker__week {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+.react-datepicker__day-names {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.react-datepicker__day {
+  min-width: 20px;
+  text-align: center;
+}
+
+.react-datepicker__navigation {
+  display: none;
+}
+
+.react-datepicker__day--selected {
+  background-color: #e38484;
+  color: white;
+  border-radius: 100%;
+}
