@@ -14,6 +14,7 @@ const ImageGallery = ({ data }: Props) => {
       <div className="grid-cols-3 grid gap-[4px] mt-[16px]">
         {data.map((item: string) => (
           <div
+            key={item}
             className="w-full h-[120px] overflow-hidden cursor-pointer"
             onClick={() => {
               setShowSwiper(true)
