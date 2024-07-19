@@ -9,6 +9,7 @@ import ImageGallery from './components/section/ImageGallery'
 import Intro from './components/section/Intro'
 import Calendar from './components/section/Calendar'
 import Map from './components/section/Map'
+import Contact from './components/section/Contact'
 
 function App() {
   //1. wedding 데이터 호출
@@ -76,6 +77,7 @@ function App() {
         />
         <Calendar date={new Date(date)} />
         <Map data={location} />
+        <Contact data={{ groom: groom, bride: bride }} />
       </div>
     )
   }

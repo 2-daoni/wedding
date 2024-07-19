@@ -1,6 +1,7 @@
 export interface AccountDto {
   bankName: string
   accountNumber: string
+  kakaopayLink?: string
 }
 
 export interface ParentDto {
@@ -9,14 +10,7 @@ export interface ParentDto {
   phoneNumber: string
 }
 
-export interface BrideDto {
-  account: AccountDto
-  name: string
-  parents: Array<ParentDto>
-  phoneNumber: string
-}
-
-export interface GroomDto {
+export interface PersonDto {
   account: AccountDto
   name: string
   parents: Array<ParentDto>
@@ -37,10 +31,10 @@ export interface LocationDto {
 
 export interface WeddingDto {
   attendCount: number
-  bride: BrideDto
+  bride: PersonDto
   date: string
   galleryImages: Array<string>
-  groom: GroomDto
+  groom: PersonDto
   id: number
   location: LocationDto
   message: { intro: string; invitation: string }

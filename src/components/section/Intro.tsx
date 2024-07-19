@@ -1,12 +1,12 @@
 import moment from 'moment'
-import { BrideDto, GroomDto } from '../../types/types'
+import { PersonDto } from '../../types/types'
 import { format, parseISO } from 'date-fns'
 import { ko } from 'date-fns/locale'
 
 interface Props {
   data: {
-    groom: GroomDto
-    bride: BrideDto
+    groom: PersonDto
+    bride: PersonDto
     date: string
     location: string
     message: { intro: string; invitation: string }
