@@ -9,7 +9,6 @@ const Map = ({ data }: Props) => {
   const { lat, link, lng, name, waytocome, address } = data
   const mapRef = useRef<any>(null)
 
-  console.log('key', process.env.REACT_APP_KAKAO_KEY)
   useEffect(() => {
     const script = document.createElement('script')
     script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.REACT_APP_KAKAO_APP_KEY}&autoload=false`
