@@ -63,7 +63,7 @@ function App() {
     } = wedding
 
     return (
-      <div className="py-[60px] px-[20px]">
+      <div className="py-[60px] px-[20px] max-w-[400px]">
         <Header data={date} />
         <Video />
         <ImageGallery data={galleryImages} />

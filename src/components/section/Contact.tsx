@@ -31,26 +31,38 @@ const Contact = ({ data }: Props) => {
         {showData && (
           <div className="pl-[16px] ">
             {/* 신랑 & 신부 정보 */}
-            <section className="mr-[24px] pt-[8px]">
+            <section className="mr-[24px] pt-[8px] space-y-[4px]">
               <div className="flex">
                 <p className="min-w-[40px]">{currentPerson}</p>
                 <span>{data.name}</span>
               </div>
-              <div className="flex">
-                <p className="min-w-[40px]">연락처</p>{' '}
-                <span>{phoneNumber(data.phoneNumber)}</span>
+              <div className="flex justify-between w-full">
+                <div className="flex">
+                  <p className="min-w-[40px]">연락처</p>{' '}
+                  <span> {phoneNumber(data.phoneNumber)}</span>
+                </div>
+                <button
+                  className="flex items-center border-b-[1px] border-black px-[8px]"
+                  onClick={() => {
+                    document.location.href = `tel:${data.phoneNumber}`
+                  }}
+                >
+                  전화걸기
+                </button>
               </div>
-              <div className="flex">
-                <p className="min-w-[40px]">계좌</p>
-                <span>
-                  {data.account.bankName} {data.account.accountNumber}
-                </span>
+              <div className="flex justify-between">
+                <div className="flex">
+                  <p className="min-w-[40px]">계좌</p>
+                  <span>
+                    {data.account.bankName} {data.account.accountNumber}
+                  </span>
+                </div>
                 {data.account?.kakaopayLink && (
                   <a
                     target={'_blank'}
                     rel="noreferrer"
                     href={data.account?.kakaopayLink}
-                    className="ml-[16px] flex items-center border-[1px] border-black px-[8px] rounded-[8px]"
+                    className="flex items-center border-b-[1px] border-black px-[8px]"
                   >
                     <img
                       src="/images/send.svg"

@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 interface Props {
   brideName: string
@@ -7,6 +8,8 @@ interface Props {
 }
 
 const Share = ({ brideName, groomName, message }: Props) => {
+  const [copied, setCopied] = useState<boolean>(false)
+
   const handleShareKakao = () => {
     window.Kakao.Share.sendDefault({
       objectType: 'feed',
@@ -47,15 +50,48 @@ const Share = ({ brideName, groomName, message }: Props) => {
   }, [])
 
   return (
-    <div>
-      <button
-        onClick={() => {
-          handleShareKakao()
-        }}
-        className="w-[16px] h-[16px]"
-      >
-        <img src="/images/kakao.svg" alt="kakao" />
-      </button>
+    <div className="mt-[60px]">
+      <span className="text-[20px] font-[700]">📲 공유하기</span>
+      <div className="flex space-x-[16px] w-full mt-[16px] justify-between">
+        <button
+          onClick={() => {
+            handleShareKakao()
+          }}
+          className="w-full flex flex-col justify-center items-center"
+        >
+          <img
+            src="/images/kakao.svg"
+            alt="kakao"
+            className="w-[24px] h-[24px]"
+          />
+          카카오로 공유하기
+        </button>
+        <div className="relative w-full">
+          <CopyToClipboard
+            text={process.env.REACT_APP_CLIENT_URL as string}
+            onCopy={() => {
+              setCopied(true)
+              // setTimeout(() => {
+              //   setCopied(false)
+              // }, 2000)
+            }}
+          >
+            <button className="flex flex-col justify-center items-center w-full">
+              <img
+                src="/images/copy.svg"
+                alt="copy"
+                className="w-[24px] h-[24px]"
+              />
+              <p>링크 복사하기</p>
+            </button>
+          </CopyToClipboard>
+          {copied && (
+            <p className="absolute bottom-[-38px] right-[14px] py-[4px] px-[16px] rounded-full border-[1px] border-red-500 min-w-fit">
+              복사가 완료되었습니다!
+            </p>
+          )}
+        </div>
+      </div>
     </div>
   )
 }
